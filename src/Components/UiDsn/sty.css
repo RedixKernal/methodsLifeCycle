@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&family=Outfit:wght@300&display=swap');
+
+.mainContainer{
+    max-width:100%;
+    min-height :96vh;
+    background-color:rgba(160, 160, 160, 0.349);
+    box-sizing:border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.childContainer{
+    padding:5px;
+    width:350px;
+    min-height :100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius:4px;
+}
+.mainbox{
+    padding:10px;
+    margin:2px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width:70px;
+    height:60px;
+    background-color:rgba(253, 253, 253, 0.98);
+    border-radius:4px 10px 4px 10px;
+    box-shadow:0px 0px 6px rgb(187, 187, 187);
+    cursor:pointer;
+    text-align:'center';
+}
+.titleText{
+    padding:0px 5px;
+    width:100%;
+    color:rgb(45, 45, 45);
+    font-size:8px;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+}
+.mainbox:hover{
+    background-color:rgba(255, 255, 255, 0.815);
+    box-shadow:0px 0px 1px rgba(251, 251, 251, 0.706);
+}
