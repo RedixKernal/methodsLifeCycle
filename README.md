@@ -1,70 +1,212 @@
-# Getting Started with Create React App
+  <div>
+    <div className="toolbar">
+      <div className="tool">
+        <span>PDFJS + FabricJS + jsPDF</span>
+      </div>
+      <div className="tool">
+        <label>Brush size</label>
+        <input type="number" className="form-control text-right" defaultValue={1} id="brush-size" max={50} />
+      </div>
+      <div className="tool">
+        <label>Font size</label>
+        <select id="font-size" className="form-control">
+          <option value={10}>10</option>
+          <option value={12}>12</option>
+          <option value={16} defaultValue>16</option>
+          <option value={18}>18</option>
+          <option value={24}>24</option>
+          <option value={32}>32</option>
+          <option value={48}>48</option>
+          <option value={64}>64</option>
+          <option value={72}>72</option>
+          <option value={108}>108</option>
+        </select>
+      </div>
+      <div className="tool">
+        <button className="color-tool active" style={{backgroundColor: '#212121'}} />
+        <button className="color-tool" style={{backgroundColor: 'red'}} />
+        <button className="color-tool" style={{backgroundColor: 'blue'}} />
+        <button className="color-tool" style={{backgroundColor: 'green'}} />
+        <button className="color-tool" style={{backgroundColor: 'yellow'}} />
+      </div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+      <div className="tool">
+        <button className="tool-button active">
+          <i className="fa fa-hand-paper-o" title="Free Hand"  />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="tool-button">
+          <i className="fa fa-pencil" title="Pencil"  />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="tool-button">
+          <i className="fa fa-font" title="Add Text" />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="tool-button">
+          <i className="fa fa-long-arrow-right" title="Add Arrow"  />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="tool-button">
+          <i className="fa fa-square-o" title="Add rectangle"  />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="tool-button">
+          <i className="fa fa-picture-o" title="Add an Image"  />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="btn btn-danger btn-sm" >
+          <i className="fa fa-trash" />
+        </button>
+      </div>
+      <div className="tool">
+        <button className="btn btn-danger btn-sm" >
+        Clear Page
+        </button>
+      </div>
+      <div className="tool">
+        <button className="btn btn-info btn-sm" >{'{'}{'}'}</button>
+      </div>
+      <div className="tool">
+        <button className="btn btn-light btn-sm" >
+        <i className="fa fa-save" /> Save
+        </button>
+      </div>
+    </div>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+    <div id="pdf-container" ></div>
+   
+   
+   
+   
+    <div className="modal fade" id="dataModal" tabIndex={-1} role="dialog" aria-labelledby="dataModalLabel" aria-hidden="true">
+      <div className="modal-dialog modal-lg" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="dataModalLabel">PDF annotation data</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <pre className="prettyprint lang-json linenums" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  // <div>
+    //   <div className="toolbar">
+    //     <div className="tool">
+    //       <span>PDFJS + FabricJS + jsPDF</span>
+    //     </div>
+    //     <div className="tool">
+    //       <label>Brush size</label>
+    //       <input type="number" className="form-control text-right" defaultValue={1} id="brush-size" max={50} />
+    //     </div>
+    //     <div className="tool">
+    //       <label>Font size</label>
+    //       <select id="font-size" className="form-control">
+    //         <option value={10}>10</option>
+    //         <option value={12}>12</option>
+    //         <option value={16} defaultValue>16</option>
+    //         <option value={18}>18</option>
+    //         <option value={24}>24</option>
+    //         <option value={32}>32</option>
+    //         <option value={48}>48</option>
+    //         <option value={64}>64</option>
+    //         <option value={72}>72</option>
+    //         <option value={108}>108</option>
+    //       </select>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="color-tool active" style={{backgroundColor: '#212121'}} />
+    //       <button className="color-tool" style={{backgroundColor: 'red'}} />
+    //       <button className="color-tool" style={{backgroundColor: 'blue'}} />
+    //       <button className="color-tool" style={{backgroundColor: 'green'}} />
+    //       <button className="color-tool" style={{backgroundColor: 'yellow'}} />
+    //     </div>
 
-### `npm test`
+    //     <div className="tool">
+    //       <button className="tool-button active">
+    //         <i className="fa fa-hand-paper-o" title="Free Hand" onClick={(event) =>{enableSelector(event)}} />
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="tool-button">
+    //         <i className="fa fa-pencil" title="Pencil" onClick={(event) =>{enablePencil(event)}} />
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="tool-button">
+    //         <i className="fa fa-font" title="Add Text" onClick={(event) =>{enableAddText(event)} }/>
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="tool-button">
+    //         <i className="fa fa-long-arrow-right" title="Add Arrow" onClick={(event) =>{enableAddArrow(event)}} />
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="tool-button">
+    //         <i className="fa fa-square-o" title="Add rectangle" onClick={(event) =>{enableRectangle(event)}} />
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="tool-button">
+    //         <i className="fa fa-picture-o" title="Add an Image" onClick={(event) =>{addImage(event)}} />
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="btn btn-danger btn-sm" onClick={(event) =>{deleteSelectedObject(event)}}>
+    //         <i className="fa fa-trash" />
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="btn btn-danger btn-sm" onClick={() =>{clearPage()}}>
+    //       Clear Page
+    //       </button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="btn btn-info btn-sm" onClick={() =>{showPdfData()}}>{'{'}{'}'}</button>
+    //     </div>
+    //     <div className="tool">
+    //       <button className="btn btn-light btn-sm" onClick={(event) =>{savePDF()}}>
+    //       <i className="fa fa-save" /> Save
+    //       </button>
+    //     </div>
+    //   </div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    //   <div id="pdf-container" ></div>
+     
+     
+     
+     
+    //   <div className="modal fade" id="dataModal" tabIndex={-1} role="dialog" aria-labelledby="dataModalLabel" aria-hidden="true">
+    //     <div className="modal-dialog modal-lg" role="document">
+    //       <div className="modal-content">
+    //         <div className="modal-header">
+    //           <h5 className="modal-title" id="dataModalLabel">PDF annotation data</h5>
+    //           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+    //             <span aria-hidden="true">×</span>
+    //           </button>
+    //         </div>
+    //         <div className="modal-body">
+    //           <pre className="prettyprint lang-json linenums" />
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>

@@ -4,17 +4,20 @@
 // import Fld4 from "./Components/Fld4";
 // import Fld5 from "./Components/Fld5";
 // import Fld6 from "./Components/Fld6";
-import NameUI from "./Components/UiDsn";
+// import NameUI from "./Components/UiDsn";
+// import Main from "./Components/newModule/AlisCon";
+// import MessageBox from "./Components/newModule/M1";
+// import './App.css';
+// import Pdfreact from "./Components/newModule/jsxHtml/pdfreact";
+// import PDFMain from "./pages";
+
+import ReactMainContainer from "./pages";
+
+
 function App() {
   return (
-    <div className="App">
-      {/* <Fdl1 /> */}
-      {/* <Fld2 /> */}
-      {/* <Fld3 /> */}
-      {/* <Fld4 /> */}
-      {/* <Fld5 /> */}
-      {/* <Fld6 /> */}
-      <NameUI />
+    <div className='App'>
+      <ReactMainContainer />
     </div>
   );
 }
