@@ -3,8 +3,6 @@ import './style.css';
 import fabric from 'fabric';
 import $ from 'jquery';
 import jspdf from 'jspdf';
-import pdfjsLib  from 'build/pdf.js';
-import pdfjs  from 'node_modules\pdfjs-dist\webpack.js';
 
 
 

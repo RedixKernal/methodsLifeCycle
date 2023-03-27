@@ -10,14 +10,14 @@
 // import './App.css';
 // import Pdfreact from "./Components/newModule/jsxHtml/pdfreact";
 // import PDFMain from "./pages";
+// import ReactMainContainer from "./pages";
 
-import ReactMainContainer from "./pages";
-
+import ReactPDF from "./Components/Rpdf/ReactPDF";
 
 function App() {
   return (
     <div className='App'>
-      <ReactMainContainer />
+      <ReactPDF />
     </div>
   );
 }
